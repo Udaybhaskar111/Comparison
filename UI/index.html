@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    <div>
+        <form id="form">
+            <label>Enter Database Name</label>
+            <input type="text" id="DBName"/>
+            <label>Enter Tabel Name</label>
+            <input type="text" id="TabelName"/>
+            <label>Enter User Name</label>
+            <input type="text" id="userName"/>
+            <label>Enter Password</label>
+            <input type="text" id="password"/>
+            <label>Select the type of Database</label>
+            <select id="DBType">
+                <option default selected disabled value="">Select option</option>
+                <option>mysql</option>
+                <option>Postgres</option>
+            </select>
+            <input type="submit" onclick="OnSubmit(event)"/>
+        </form>
+    </div>
+    <div>
+        <form>
+            <input type="file" id="fileInput">
+            <button type="submit" onclick=" onFileUpload(event)">Send File</button>
+        </form>
+    </div>
 <script src="./index.js"></script>
 </body>
 </html>
