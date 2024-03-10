@@ -61,3 +61,22 @@ const onFileUpload = (e) => {
   const input = document.getElementById("fileInput");
   upload(input.files[0]);
 };
+function onComparision() {
+  fetch("http://172.22.30.145:8081/compare")
+    .then((response) => response.json())
+    .then((json) => {
+      const result = document.getElementById("result");
+      let list = document.createElement("ul");
+      const Db = json.Db;
+      const File = json.File;
+      for (let i in Db) {
+        console.log(Object.keys(Db[i]));
+        console.log(Object.values(Db[i]));
+      }
+      result.appendChild(list);
+    }
+    )
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+}

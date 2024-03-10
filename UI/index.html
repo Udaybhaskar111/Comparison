@@ -8,29 +8,28 @@
   </head>
   <body>
     <div>
-      <form id="form">
-        <label>Enter Database Name</label>
-        <input type="text" id="DBName" />
-        <label>Enter Tabel Name</label>
-        <input type="text" id="TabelName" />
-        <label>Enter User Name</label>
-        <input type="text" id="userName" />
-        <label>Enter Password</label>
-        <input type="text" id="password" />
-        <label>Select the type of Database</label>
+      <form id="form" class="DBconnection">
+        <input type="text" id="DBName" placeholder="Enter Database Name" />
+        <input type="text" id="TabelName" placeholder="Enter Tabel Name" />
+        <input type="text" id="userName" placeholder="Enter Database User Name" />
+        <input type="text" id="password" placeholder="Enter Database Password" />
         <select id="DBType">
-          <option default selected disabled value="">Select option</option>
+          <option default selected disabled value="">Select DataBase Type</option>
           <option>mysql</option>
-          <option>Postgres</option>
+          <option>postgres</option>
         </select>
         <input type="submit" onclick="OnSubmit(event)" />
       </form>
     </div>
     <div>
-      <form>
+      <form class="file">
         <input type="file" id="fileInput" />
         <button type="submit" onclick=" onFileUpload(event)">Send File</button>
       </form>
+    </div>
+    <div><input onclick="onComparision()" type="submit" value="Compare"/></div>
+    <div class="result" id="result">
+      
     </div>
     <script src="./index.js"></script>
   </body>
