@@ -7,29 +7,90 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <div>
-      <form id="form" class="DBconnection">
-        <input type="text" id="DBName" placeholder="Enter Database Name" />
-        <input type="text" id="TabelName" placeholder="Enter Tabel Name" />
-        <input type="text" id="userName" placeholder="Enter Database User Name" />
-        <input type="text" id="password" placeholder="Enter Database Password" />
-        <select id="DBType">
-          <option default selected disabled value="">Select DataBase Type</option>
-          <option>mysql</option>
-          <option>postgres</option>
-        </select>
-        <input type="submit" onclick="OnSubmit(event)" />
+    <nav class="navbar">
+      <li>Home</li>
+      <marquee direction="left">compare your data</marquee>
+    </nav>
+    <div class="dataformcontainer">
+      <form id="form" class="dbconnection">
+        <h3>Please fill the below data for database connection</h3>
+        <div class="field">
+          <!-- <label for="DBName">Database Name:</label> -->
+          <input type="text" id="DBName" placeholder="Enter Database Name" />
+        </div>
+        <div class="field">
+          <!-- <label for="TabelName">Table Name:</label> -->
+          <input type="text" id="TabelName" placeholder="Enter TabelName" />
+        </div>
+        <div class="field">
+          <!-- <label for="userName">Username:</label> -->
+          <input type="text" id="userName" placeholder="Enter Username" />
+        </div>
+        <div class="field">
+          <!-- <label for="password">Password:</label> -->
+          <input type="text" id="password" placeholder="Enter Password" />
+        </div>
+        <div class="field">
+          <!-- <label for="Choose DataBase">Choose Database</label> -->
+          <select id="DBType">
+            <option default selected disabled value="Choose Database">
+              Select DataBase Type
+            </option>
+            <option>mysql</option>
+            <option>postgres</option>
+          </select>
+        </div>
+        <div class="submission">
+          <input type="submit" onclick="OnSubmit(event)" />
+        </div>
       </form>
-    </div>
-    <div>
+
+    <div class="fileformcontainer">
+      <h3>Please attach the file to compare with</h3>
       <form class="file">
-        <input type="file" id="fileInput" />
-        <button type="submit" onclick=" onFileUpload(event)">Send File</button>
+        <div>
+          <input type="file" id="fileInput" />
+        </div>
+        <div>
+          <button type="submit" onclick=" onFileUpload(event)">
+            Send File
+          </button>
+          <h3 id="info"></h3>
+        </div>
       </form>
     </div>
-    <div><input onclick="onComparision()" type="submit" value="Compare"/></div>
-    <div class="result" id="result">
-      
+  </div>
+    <div class="initialcompare">
+      <h3>Click for initial compare -></h3>
+      <input
+        class="intialbutton"
+        onclick="onInitialComparision()"
+        type="submit"
+        value="initialCompare"
+      />
+      <h3 id="message"></h3>
+    </div>
+    <div id="order">
+      <h3>click for Mapping?</h3>
+      <input
+        onclick="onChangeOrder()"
+        type="submit"
+        value="Mapping?"
+      />
+    </div>
+    <div id="totalshow">
+      <div id="show">
+      </div>
+      <div id="inputfromuser">
+        <h3 id="map">Map respectively</h3>
+      </div>
+    </div>
+    <div class="comparebutton">
+    <label>Compare the Data-></label>
+    <input onclick="onComparision()" type="submit" value="Compare" class="inp" /></div>
+    <div class="output">
+      <div class="result" id="result"></div>
+      <div class="lostdata" id="lostdata"></div>
     </div>
     <script src="./index.js"></script>
   </body>

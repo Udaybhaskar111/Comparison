@@ -1,32 +1,182 @@
 body{
     display: flex;
-    align-items: center;
-    height: 100vh;
-    justify-content: space-around;
-    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
     flex-direction: column;
-    gap:30px;
+    margin: 0px;
+    padding: 0px;
+}
+.navbar{
+    display:flex;
+    align-items: center;
+    width:100%;
+    font-size: 16px;
+    height: 50px;
+    border: none;
+    color:white;
+    background-color: black;
+    border-bottom: 1px solid black;
+}
+.navbar li{
+    padding-left: 5%;
+    list-style: none;
+}
+.dataformcontainer{
+    width:100%;
+    display: flex;
+}
+.fileformcontainer{
+    width: 100%;
 }
 input,select{
-    width:300px;
+    width:200px;
     height:40px;
-    border-radius: 12px;
+    /* border-radius: 7px; */
 }
-.DBconnection{
+.dbconnection{
+    padding-left: 5%;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 50%;
-    gap: 20px;
+    width:100%;
+    /* gap: 10%; */
+    gap:20px;
+    flex-wrap: wrap;
+}
+.submission{
+    width: 100%;
+    margin-top: 10px;
+}
+.field{
+    display: flex;
+    justify-content: space-between;
+    width:30%;
+}
+.submission input{
+    background:black;
+    color:white;
+    cursor: pointer;
+}
+.file{
+    display: flex;
+    flex-direction: column;
 }
 .file input[type="file"] {
     height:auto;
     width:auto;
     border-radius: 0px;
 }
-.result{
-    width:100vw;
+.file button{
+    width:100px;
+    height:30px;
+    border-radius: 7px;
+    background:black;
+    color:white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.initialcompare{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.intialbutton,#order input,.inp{
+    width:100px;
+    height:30px;
+    border-radius: 7px;
+    background:black;
+    color:white;
+    cursor: pointer;
+}
+.output{
+    width: 98vw;
+    display:none;
+}
+.result,.lostdata{
+    width:49vw;
     height: 400px;
     border: 1px solid;
     display: flex;
+    flex-direction: column;
+    gap:10px;
+    overflow: scroll;
+    /* align-items: center; */
+}
+.lostdata button{
+    margin-left: auto;
+    margin-right: auto;
+}
+.result ul,.lostdata ul{
+    width: 49vw;
+}
+.result::-webkit-scrollbar,.lostdata::-webkit-scrollbar{
+    display: none;
+}
+#order{
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap:5%;
+}
+#totalshow{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+#show{
+    display: flex;
+    justify-content: flex-start;
+    gap:5%;
+    align-items: center;
+    width: 50%;
+    max-height: 400px;
+    min-height: 0px;
+    overflow: scroll;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+#inputfromuser{
+    width:50%;
+    max-height: 400px;
+    overflow: scroll;
+}
+#show::-webkit-scrollbar,#inputfromuser::-webkit-scrollbar{
+    display: none
+}
+#show{
+    display: flex;
+    flex-direction: column;
+    gap:5px
+}
+#show ul{
+    display: flex;
+}
+#show li{
+    padding-left: 15px;
+    list-style:none;
+    border: 1px solid;
+}
+#map{
+    display: none;
+}
+#result table,td{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+.lostdata table,td{
+    border: 1px solid;
+    border-collapse: collapse;
+
+}
+.comparebutton{
+    padding-bottom: 10px;
+}
+.lostdata button{
+    width:80px;
+    height:40px;
+    background:#1976d2;
+    color:white;
+    cursor: pointer;
 }
