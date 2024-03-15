@@ -210,7 +210,7 @@ td {
 .lostdata button {
   width: 80px;
   height: 40px;
-  background: #1976d2;
+  background: #415ce0;
   color: white;
   cursor: pointer;
 }
@@ -261,6 +261,7 @@ span {
 .firstrow{
     background-color: #415ce0;
     color: white;
+}
 .submission{
   width: 300px;
 }
