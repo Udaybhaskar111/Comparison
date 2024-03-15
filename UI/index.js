@@ -135,7 +135,6 @@ const onChangeOrder=()=>{
           });
           mapmsg.style.display='block';
          inputfields.append(sp);
-         inputfields.append('-->');
          inputfields.append(inp);
          inpfromuser.append(inputfields);
        }
