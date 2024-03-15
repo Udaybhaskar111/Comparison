@@ -45,21 +45,25 @@
         </div>
       </form>
 
-    <div class="fileformcontainer">
-      <h3>Please attach the file to compare with</h3>
-      <form class="file">
-        <div>
-          <input type="file" id="fileInput" />
-        </div>
-        <div>
-          <button type="submit" onclick=" onFileUpload(event)">
-            Send File
-          </button>
-          <h3 id="info"></h3>
-        </div>
-      </form>
+      <div class="fileformcontainer">
+        <h3>Please attach the file to compare with</h3>
+        <form class="file">
+            <label for="fileInput" class="fileStyles"
+              ><div class="image">
+                <img src="./images/upload.svg" alt="upload" />
+              </div>
+              <p><span>Select</span> a file Formats: CSV & XLSX.</p></label
+            >
+            <input type="file" id="fileInput" />
+          <div class="submitFile">
+            <button type="submit" onclick=" onFileUpload(event)">
+              Send File
+            </button>
+            <h3 id="info"></h3>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
     <div class="initialcompare">
       <h3>Click for initial compare -></h3>
       <input
@@ -72,22 +76,23 @@
     </div>
     <div id="order">
       <h3>click for Mapping?</h3>
-      <input
-        onclick="onChangeOrder()"
-        type="submit"
-        value="Mapping?"
-      />
+      <input onclick="onChangeOrder()" type="submit" value="Mapping?" />
     </div>
     <div id="totalshow">
-      <div id="show">
-      </div>
+      <div id="show"></div>
       <div id="inputfromuser">
         <h3 id="map">Map respectively</h3>
       </div>
     </div>
     <div class="comparebutton">
-    <label>Compare the Data-></label>
-    <input onclick="onComparision()" type="submit" value="Compare" class="inp" /></div>
+      <label>Compare the Data-></label>
+      <input
+        onclick="onComparision()"
+        type="submit"
+        value="Compare"
+        class="inp"
+      />
+    </div>
     <div class="output">
       <div class="result" id="result"></div>
       <div class="lostdata" id="lostdata"></div>
