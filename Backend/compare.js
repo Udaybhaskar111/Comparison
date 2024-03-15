@@ -1,5 +1,5 @@
-import datafile from "../datafile.json" assert { type: "json" };
-import datadb from "../data.json" assert { type: "json" };
+import datafile from "./datafile.json" assert { type: "json" };
+import datadb from "./data.json" assert { type: "json" };
 import { json2csv } from "json-2-csv";
 import * as fs from "fs";
 let userfile = [];
@@ -11,10 +11,37 @@ const compareObject = (obj1, obj2, body) => {
       } else if (obj2[i] == "" && obj1[i] == null) {
         continue;
       }
-      let valueType = typeof obj2[body[i]];
-      console.log(valueType, "ll");
-      if (obj1[i] !== obj2[body[i]]) {
+      let value = typeof obj2[body[i]];
+      try{
+        console.log("try")
+        switch (value) {
+          case "number":
+            obj1[i] = Number(obj1[i]);
+            break;
+          case "string":
+            obj1[i] = String(obj1[i]);
+            break;
+          case "boolean":
+            obj1[i] = Boolean(obj1[i]);
+            break;
+          case "date":
+            obj1[i] = Date(obj1[i]);
+          default:
+            obj1[i]=obj1[i];
+        }
+      }
+      catch(error){
         return false;
+      }
+      if (value=="string"){
+        if(obj1[i].toLowerCase() !== obj2[body[i]].toLowerCase()) {
+          return false;
+        }
+      }
+      else{
+        if (obj1[i] !== obj2[body[i]]) {
+          return false;
+        }
       }
     }
     return true;
@@ -26,6 +53,8 @@ const compareObject = (obj1, obj2, body) => {
         continue;
       }
       let value = typeof obj2[i];
+      console.log(value)
+      try{
       switch (value) {
         case "number":
           obj1[i] = Number(obj1[i]);
@@ -39,11 +68,23 @@ const compareObject = (obj1, obj2, body) => {
         case "date":
           obj1[i] = Date(obj1[i]);
         default:
-          return false;
+          obj1[i]=obj1[i];
       }
+      console.log(obj1[i])
+    }
+    catch(error){
+      return false;
+    }
+      if (value=="string"){
+      if(obj1[i].toLowerCase() !== obj2[i].toLowerCase()) {
+        return false;
+      }
+    }
+    else{
       if (obj1[i] !== obj2[i]) {
         return false;
       }
+    }
     }
     return true;
   }
@@ -59,12 +100,12 @@ export const compare = async (req, res) => {
   let lostDataInFile = [];
   const { body } = req;
   let sameCount = true;
-  let sameType = true;
   let oneTimeCheck = true;
   for (let i = 0; i < datafile.length; i++) {
     let flag = false;
     for (let j = 0; j < datadb.length; j++) {
       const obj1 = Object.values(datafile[i]);
+      console.log(obj1,"iujiu")
       const obj2 = Object.values(datadb[j]);
       if (oneTimeCheck) {
         oneTimeCheck = false;
@@ -72,10 +113,9 @@ export const compare = async (req, res) => {
           sameCount = false;
         }
       }
-      if (!sameType || !sameCount) {
+      if (!sameCount) {
         break;
       }
-      console.log(obj1.length, obj2.length, "as lengths");
       if (compareObject(obj1, obj2, body)) {
         flag = true;
         break;
@@ -85,7 +125,7 @@ export const compare = async (req, res) => {
       lostDataInFile.push({ data: datafile[i], index: i });
       userfile.push(datafile[i]);
     }
-    if (!sameCount || !sameType) {
+    if (!sameCount) {
       break;
     }
   }
@@ -95,13 +135,7 @@ export const compare = async (req, res) => {
       LostData: lostDataInFile,
       message: "The number of columns are not matching",
     });
-  } else if (!sameType) {
-    res.send({
-      Filedata: datafile,
-      LostData: lostDataInFile,
-      message: "The types of columns are not matching",
-    });
-  } else {
+  }  else {
     res.send({ Filedata: datafile, LostData: lostDataInFile, message: "" });
   }
 };
