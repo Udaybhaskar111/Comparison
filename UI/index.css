@@ -1,25 +1,30 @@
-body {
-  display: flex;
-  width: 100%;
-  box-sizing: border-box;
-  flex-direction: column;
-  margin: 0px;
-  padding: 0px;
+body{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
-.navbar {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  font-size: 16px;
-  height: 50px;
-  border: none;
-  color: white;
-  background-color: black;
-  border-bottom: 1px solid black;
+.navbar{
+    display:flex;
+    align-items: center;
+    width:100%;
+    font-size: 16px;
+    height: 50px;
+    border: none;
+    color:rgb(255, 255, 255);
+    background-color: black;
+    border-bottom: 1px solid black;
 }
-.navbar li {
-  padding-left: 5%;
-  list-style: none;
+h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.navbar li{
+    padding-left: 5%;
+    list-style: none;
 }
 .dataformcontainer {
   width: 100%;
@@ -45,17 +50,60 @@ select {
 }
 .submission {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 10px;}
+
+input{
+    width:200px;
+    height:40px;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left:16px;
+}
+input:focus{
+    outline: none;
+}
+select{
+    width: 220px;
+    height: 45px;
+    padding-left: 16px;
+}
+input::placeholder{
+    padding-left: 5px;
+}
+.dbconnection{
+    padding-left: 5%;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    align-items: center;
+    gap:20px;
+    flex-wrap: wrap;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.082);
+}
+.submission{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 .field {
   display: flex;
   justify-content: space-between;
   width: 30%;
 }
-.submission input {
-  background: black;
-  color: white;
-  cursor: pointer;
+.submission input{
+    background:black;
+    color:white;
+    width: auto;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    text-align: center;
+}
+.file{
+    display: flex;
+    flex-direction: column;
 }
 .file input[type="file"] {
   height: auto;
@@ -73,14 +121,13 @@ select {
 }
 .initialcompare {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
   align-items: center;
   width: 100%;
 }
 .intialbutton,
 #order input,
 .inp {
-  width: 100px;
   height: 30px;
   border-radius: 7px;
   background: black;
@@ -176,6 +223,8 @@ td {
 }
 .comparebutton {
   padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 .lostdata button {
   width: 80px;

@@ -111,34 +111,35 @@ const onChangeOrder = () => {
         listitems.append(item1);
         listitems2.append(item2);
       }
-      lenOfData = json.file.length;
-      showitems.append(userinffordb);
-      showitems.append(listitems);
-      showitems.append(userinfforfile);
-      showitems.append(listitems2);
-      userinput = [];
-      let inpfromuser = document.querySelector("#inputfromuser");
-      let mapmsg = document.getElementById("map");
-      for (let i = 0; i < lenOfData; i++) {
-        let inputfields = document.createElement("ul");
-        let sp = document.createElement("span");
-        let inp = document.createElement("input");
-        sp.innerText = i;
-        inp.setAttribute("type", "number");
-        inp.addEventListener("input", (event) => {
-          userinput[i] = event.target.value;
-          console.log(userinput);
-        });
-        mapmsg.style.display = "block";
-        inputfields.append(sp);
-        inputfields.append("-->");
-        inputfields.append(inp);
-        inpfromuser.append(inputfields);
-      }
-    });
-};
-function onComparision() {
-  fetch("http://localhost:8081/compare", {
+      lenOfData=json.file.length;
+       showitems.append(userinffordb)
+       showitems.append(listitems);
+       showitems.append(userinfforfile)
+       showitems.append(listitems2);
+       userinput=[]
+       let inpfromuser=document.querySelector('#inputfromuser');
+       let mapmsg=document.getElementById('map');
+       for(let i=0;i<lenOfData;i++){
+        let inputfields=document.createElement('ul');
+         let sp=document.createElement('span');
+         let inp=document.createElement('input');
+         sp.innerText=i;
+         inp.setAttribute('type', 'number');
+         inp.addEventListener('input', (event) => {
+          userinput[i] = event.target.value; 
+          console.log(userinput)
+          });
+          mapmsg.style.display='block';
+         inputfields.append(sp);
+         inputfields.append('-->');
+         inputfields.append(inp);
+         inpfromuser.append(inputfields);
+       }
+    }
+    )
+}
+ function onComparision() {
+  fetch("http://localhost:8081/compare",{
     method: "POST",
     body: JSON.stringify(userinput),
     headers: {

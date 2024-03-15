@@ -15,23 +15,18 @@
       <form id="form" class="dbconnection">
         <h3>Please fill the below data for database connection</h3>
         <div class="field">
-          <!-- <label for="DBName">Database Name:</label> -->
           <input type="text" id="DBName" placeholder="Enter Database Name" />
         </div>
         <div class="field">
-          <!-- <label for="TabelName">Table Name:</label> -->
           <input type="text" id="TabelName" placeholder="Enter TabelName" />
         </div>
         <div class="field">
-          <!-- <label for="userName">Username:</label> -->
           <input type="text" id="userName" placeholder="Enter Username" />
         </div>
         <div class="field">
-          <!-- <label for="password">Password:</label> -->
           <input type="text" id="password" placeholder="Enter Password" />
         </div>
         <div class="field">
-          <!-- <label for="Choose DataBase">Choose Database</label> -->
           <select id="DBType">
             <option default selected disabled value="Choose Database">
               Select DataBase Type
@@ -65,7 +60,8 @@
       </div>
     </div>
     <div class="initialcompare">
-      <h3>Click for initial compare -></h3>
+      <h3>First level of comparison</h3>
+      <h4>Comparing the column length</h4>
       <input
         class="intialbutton"
         onclick="onInitialComparision()"
@@ -75,7 +71,8 @@
       <h3 id="message"></h3>
     </div>
     <div id="order">
-      <h3>click for Mapping?</h3>
+      <h3>If you want to change the order?</h3>
+      <h4>Map here</h4>
       <input onclick="onChangeOrder()" type="submit" value="Mapping?" />
     </div>
     <div id="totalshow">
@@ -85,7 +82,7 @@
       </div>
     </div>
     <div class="comparebutton">
-      <label>Compare the Data-></label>
+      <label>Compare the Data</label>
       <input
         onclick="onComparision()"
         type="submit"
