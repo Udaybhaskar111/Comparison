@@ -104,8 +104,8 @@ select {
   width: 100%;
 }
 .output {
-  width: 98vw;
   display: none;
+  justify-content: space-around;
 }
 .result,
 .lostdata {
@@ -198,6 +198,8 @@ td {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin:30px 0px;
+  width: 100%;
 }
 .comparebutton h3 {
   width: 300px;
@@ -312,7 +314,5 @@ span {
   align-items: center;
 }
 #show li {
-  /* padding-left: 15px; */
   list-style: none;
-  /* border: 1px solid; */
 }
