@@ -183,15 +183,11 @@ select {
 #map {
   display: none;
 }
-#result table,
+#result td,.lostdata 
 td {
   border: 1px solid;
-  border-collapse: collapse;
-}
-.lostdata table,
-td {
-  border: 1px solid;
-  border-collapse: collapse;
+  margin: 2px;
+  text-align: center;
 }
 .comparebutton {
   padding-bottom: 10px;
