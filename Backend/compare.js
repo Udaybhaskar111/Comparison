@@ -1,5 +1,5 @@
-import datafile from "./datafile.json" assert { type: "json" };
-import datadb from "./data.json" assert { type: "json" };
+import datafile from "../datafile.json" assert { type: "json" };
+import datadb from "../data.json" assert { type: "json" };
 import { json2csv } from "json-2-csv";
 import * as fs from "fs";
 let userfile = [];
