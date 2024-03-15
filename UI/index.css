@@ -1,4 +1,3 @@
-
 body {
   display: flex;
   width: 100%;
@@ -135,12 +134,12 @@ select {
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  margin:30px 0px;
+  margin: 30px 0px;
 }
 #totalshow {
   width: 100%;
   display: flex;
-  margin:30px 0px;
+  margin: 30px 0px;
 }
 #show {
   display: flex;
@@ -165,18 +164,18 @@ select {
   flex-direction: column;
   justify-content: space-around;
 }
-#inputfromuser li{
-list-style: none;
-display: flex;
-width: 100%;
-justify-content: space-around;
+#inputfromuser li {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
-#inputfromuser input{
- border: 1px solid;
- width:50%;
- height:40px;
- border-radius: 8px;
-  }
+#inputfromuser input {
+  border: 1px solid;
+  width: 50%;
+  height: 40px;
+  border-radius: 8px;
+}
 #show::-webkit-scrollbar,
 #inputfromuser::-webkit-scrollbar {
   display: none;
@@ -200,10 +199,10 @@ td {
   justify-content: space-evenly;
   align-items: center;
 }
-.comparebutton h3{
+.comparebutton h3 {
   width: 300px;
 }
-.comparebutton input{
+.comparebutton input {
   width: 20%;
   border: none;
 }
@@ -241,7 +240,8 @@ span {
   align-items: center;
   justify-content: space-between;
 }
-.dbconnection h3,.fileformcontainer h3 {
+.dbconnection h3,
+.fileformcontainer h3 {
   color: #415ce0;
 }
 .fileformcontainer {
@@ -250,7 +250,8 @@ span {
 .submitFile {
   width: 100%;
 }
-.submission input,.submitFile button {
+.submission input,
+.submitFile button {
   background-color: #415ce0;
   color: #fff;
   width: 100%;
@@ -258,23 +259,24 @@ span {
   border-radius: 8px;
   border: none;
 }
-.firstrow{
-    background-color: #415ce0;
-    color: white;
-.submission{
+.firstrow {
+  background-color: #415ce0;
+  color: white;
+}
+.submission {
   width: 300px;
 }
-.initialCompare{
-  width:100%;
+.initialCompare {
+  width: 100%;
   flex-wrap: wrap;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.initialCompare h4{
-  width:20%;
+.initialCompare h4 {
+  width: 20%;
 }
-.initialcompare input{
+.initialcompare input {
   background-color: #415ce0;
   color: #fff;
   width: 20%;
@@ -291,21 +293,21 @@ span {
   border: none;
   color: #fff;
   cursor: pointer;
-  width:20%;
+  width: 20%;
 }
-#order h3{
-  width:300px;
+#order h3 {
+  width: 300px;
 }
 #show {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  }
+}
 #show ul {
-  height:40px;
+  height: 40px;
   display: flex;
-  width:80%;
+  width: 80%;
   justify-content: space-evenly;
   align-items: center;
 }
