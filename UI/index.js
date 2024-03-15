@@ -1,5 +1,5 @@
 function dBDataPassing(object) {
-  fetch("http://localhost:8081/createConnection", {
+  fetch("http://localhost:8082/createConnection", {
     method: "POST",
     body: JSON.stringify(object),
     headers: {
@@ -45,7 +45,7 @@ const upload = (file) => {
   const formData = new FormData();
   formData.append("file", file);
 
-  fetch("http://localhost:8081/file", {
+  fetch("http://localhost:8082/file", {
     method: "POST",
     body: formData,
   })
@@ -78,7 +78,7 @@ result.innerHTML = "";
 let colnamesforFile=[];
 const onInitialComparision = () => {
   let messenger = document.getElementById("message");
-  fetch("http://localhost:8081/initialcompare")
+  fetch("http://localhost:8082/initialcompare")
     .then((response) => response.json())
     .then((json) => {
       if (json.message == true) {
@@ -102,7 +102,7 @@ const onChangeOrder = () => {
   let listitems2 = document.createElement("ul");
   let showitems = document.querySelector("#show");
   let lenOfData = 0;
-  fetch("http://localhost:8081/info")
+  fetch("http://localhost:8082/info")
     .then((response) => response.json())
     .then((json) => {
       console.log(json);
@@ -124,10 +124,11 @@ const onChangeOrder = () => {
        let inpfromuser=document.querySelector('#inputfromuser');
        let mapmsg=document.getElementById('map');
        for(let i=0;i<lenOfData;i++){
-        let inputfields=document.createElement('ul');
+        let inputfields=document.createElement('li');
          let sp=document.createElement('span');
          let inp=document.createElement('input');
-         sp.innerText=i;
+         inp.placeholder="Enter the column you want to map"
+         sp.innerText=i+" column";
          inp.setAttribute('type', 'number');
          inp.addEventListener('input', (event) => {
           userinput[i] = event.target.value; 
@@ -135,6 +136,7 @@ const onChangeOrder = () => {
           });
           mapmsg.style.display='block';
          inputfields.append(sp);
+         inputfields.append("  ➡️  ");
          inputfields.append(inp);
          inpfromuser.append(inputfields);
        }
@@ -142,7 +144,7 @@ const onChangeOrder = () => {
     )
 }
  function onComparision() {
-  fetch("http://localhost:8081/compare",{
+  fetch("http://localhost:8082/compare",{
     method: "POST",
     body: JSON.stringify(userinput),
     headers: {
@@ -217,7 +219,7 @@ const onChangeOrder = () => {
         btn.addEventListener("click", async () => {
           console.log("button clicked");
           try {
-            const resp = await fetch("http://localhost:8081/getfile");
+            const resp = await fetch("http://localhost:8082/getfile");
             const blob = await resp.blob();
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement("a");
