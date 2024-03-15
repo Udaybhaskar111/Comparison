@@ -6,7 +6,6 @@ body{
     margin: 0px;
     padding: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
 }
 .navbar{
     display:flex;
@@ -163,10 +162,9 @@ input::placeholder{
 }
 #order {
   display: none;
-  justify-content: flex-start;
+  flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: 5%;
 }
 #totalshow {
   width: 100%;
@@ -270,4 +268,8 @@ span {
   color: #fff;
   width: 100%;
   height: 40px;
+}
+.firstrow{
+    background-color: #415ce0;
+    color: white;
 }
