@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <li>Home</li>
-      <marquee direction="left">compare your data</marquee>
-    </nav>
+    <nav class="navbar">COMPARISON</nav>
     <div class="dataformcontainer">
       <form id="form" class="dbconnection">
         <h3>Please fill the below data for database connection</h3>
@@ -43,13 +40,13 @@
       <div class="fileformcontainer" id="fileformcontainer">
         <h3>Please attach the file to compare with</h3>
         <form class="file">
-            <label for="fileInput" class="fileStyles"
-              ><div class="image">
-                <img src="./images/upload.svg" alt="upload" />
-              </div>
-              <p><span>Select</span> a file Formats: CSV & XLSX.</p></label
-            >
-            <input type="file" id="fileInput" />
+          <label for="fileInput" class="fileStyles"
+            ><div class="image">
+              <img src="./images/upload.svg" alt="upload" />
+            </div>
+            <p><span>Select</span> a file Formats: CSV & XLSX.</p></label
+          >
+          <input type="file" id="fileInput" />
           <div class="submitFile">
             <button type="submit" onclick=" onFileUpload(event)">
               Send File
@@ -60,20 +57,21 @@
       </div>
     </div>
     <div class="initialcompare">
-      <h3>First level of comparison</h3>
-      <h4>Comparing the column length</h4>
-      <input
-        class="intialbutton"
-        onclick="onInitialComparision()"
-        type="submit"
-        value="initialCompare"
-      />
+      <h3>Level I</h3>
+      <div class="initialCompare">
+        <h4>Comparing column lengths of DB Data and uploaded data</h4>
+        <input
+          class="intialbutton"
+          onclick="onInitialComparision()"
+          type="submit"
+          value="initialCompare"
+        />
+      </div>
       <h3 id="message"></h3>
     </div>
     <div id="order">
       <h3>If you want to change the order?</h3>
-      <h4>Map here</h4>
-      <input onclick="onChangeOrder()" type="submit" value="Mapping?" />
+      <input onclick="onChangeOrder()" type="submit" value="Map here" />
     </div>
     <div id="totalshow">
       <div id="show"></div>
@@ -82,7 +80,7 @@
       </div>
     </div>
     <div class="comparebutton">
-      <label>Compare the Data</label>
+      <h3>Compare the Data</h3>
       <input
         onclick="onComparision()"
         type="submit"
