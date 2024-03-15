@@ -75,6 +75,7 @@ const onFileUpload = (e) => {
 
 lostdata.innerHTML = "";
 result.innerHTML = "";
+let colnamesforFile=[];
 const onInitialComparision = () => {
   let messenger = document.getElementById("message");
   fetch("http://localhost:8082/initialcompare")
@@ -83,12 +84,14 @@ const onInitialComparision = () => {
       if (json.message == true) {
         messenger.innerHTML = "";
         document.getElementById("order").style.display = "flex";
+        colnamesforFile=json.header;
       } else {
         messenger.innerHTML = "";
         messenger.innerText = json.message;
       }
     });
 };
+
 let userinput = [];
 const onChangeOrder = () => {
   let listitems = document.createElement("ul");
@@ -104,6 +107,7 @@ const onChangeOrder = () => {
     .then((json) => {
       console.log(json);
       for (let i = 0; i < json.database.length; i++) {
+        colnamesforFile.push(json.file[i])
         let item1 = document.createElement("li");
         let item2 = document.createElement("li");
         item1.append(json.file[i]);
@@ -168,6 +172,21 @@ const onChangeOrder = () => {
         outputElement.style.display = "flex";
         let tab1 = document.createElement("table");
         let tab2 = document.createElement("table");
+        let tr1=document.createElement("tr");
+        tr1.classList.add('firstrow');
+        let tr2=document.createElement('tr');
+        tr2.classList.add('firstrow');
+        for(let i of colnamesforFile)
+        {
+          let td1=document.createElement('td');
+          let td2=document.createElement('td');
+          td1.append(i);
+          td2.append(i);
+          tr1.append(td1);
+          tr2.append(td2);
+        }
+        tab1.append(tr1);
+        tab2.append(tr2);
         for (let i in Db) {
           let list = document.createElement("tr");
           let obsjs = Object.values(Db[i]);
@@ -188,7 +207,9 @@ const onChangeOrder = () => {
             li.append(j);
             list.append(li);
           }
-          list.append(File[i].index);
+          let missid = document.createElement("td");
+          missid.append(File[i].index)
+          list.append(missid);
           tab2.append(list);
           lostdata.appendChild(tab2);
         }
@@ -204,7 +225,6 @@ const onChangeOrder = () => {
             const a = document.createElement("a");
             a.href = url;
             a.download = "data.csv";
-            // document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
           } catch (error) {

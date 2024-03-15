@@ -15,11 +15,12 @@ export const initialcompare = async (req, res) => {
     }
   } else {
     const obj1 = Object.values(datafile[0]);
+    const objkey=Object.keys(datafile[0]);
     const obj2 = Object.values(datadb[0]);
     if (!compareLength(obj1, obj2)) {
       res.send({ message: "column length is not matching" });
     } else {
-      res.send({ message: true });
+      res.send({ message: true,header:objkey});
     }
   }
 };

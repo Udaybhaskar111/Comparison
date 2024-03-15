@@ -1,3 +1,4 @@
+
 body {
   display: flex;
   width: 100%;
@@ -257,6 +258,9 @@ span {
   border-radius: 8px;
   border: none;
 }
+.firstrow{
+    background-color: #415ce0;
+    color: white;
 .submission{
   width: 300px;
 }
