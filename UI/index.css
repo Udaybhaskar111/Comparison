@@ -193,6 +193,7 @@ td {
 td {
   border: 1px solid;
   border-collapse: collapse;
+  text-align: center;
 }
 .comparebutton {
   padding-bottom: 10px;
@@ -208,9 +209,10 @@ td {
   border: none;
 }
 .lostdata button {
-  width: 80px;
+  width: 300px;
   height: 40px;
-  background: #1976d2;
+  border-radius: 8px;
+  background: #415ce0;
   color: white;
   cursor: pointer;
 }
@@ -261,6 +263,7 @@ span {
 .firstrow{
     background-color: #415ce0;
     color: white;
+}
 .submission{
   width: 300px;
 }
@@ -310,7 +313,5 @@ span {
   align-items: center;
 }
 #show li {
-  /* padding-left: 15px; */
   list-style: none;
-  /* border: 1px solid; */
 }
