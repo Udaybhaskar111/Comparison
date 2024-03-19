@@ -207,7 +207,7 @@ td {
 .lostdata button {
   width: 80px;
   height: 40px;
-  background: #415ce0;
+  background:rgb(82, 82, 82);
   color: white;
   cursor: pointer;
 }

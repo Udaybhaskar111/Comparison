@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use("/info", sendheader);
 app.use("/initialCompare", initialcompare);
 app.use("/sqlite", sqlite);
-app.use("/oracle", oracle);
+// app.use("/oracle", oracle);
 
 app.use("/", route);
 app.listen(8082, () => console.log("connected"));
