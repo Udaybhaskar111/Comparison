@@ -1,0 +1,25 @@
+.feildMapping{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background-color:beige; 
+}
+.feilds{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.options{
+    width: 200px;
+    text-align: center;
+    padding: 20px 10px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 24px;
+    color: rgb(82,82,82);
+    p{
+        margin: 0px;
+    }
+}

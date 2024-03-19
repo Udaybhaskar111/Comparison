@@ -1,8 +1,10 @@
-import './App.css'
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import CompareLevel1 from './components/Compare/CompareLevel.jsx';
 function App() {
   return (
     <>
-    <h1>App is running</h1>
+    <CompareLevel1/>
     </>
   )
 }
