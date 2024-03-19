@@ -1,8 +1,9 @@
-import './App.css'
+import './App.css';
+import {Form} from './components/Form/Form.jsx'
 function App() {
   return (
     <>
-    <h1>App is running</h1>
+      <Form/>
     </>
   )
 }
