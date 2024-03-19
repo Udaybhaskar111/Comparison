@@ -1,7 +1,7 @@
 import express from "express";
-import { compare } from "./compare.js";
-import { connection } from "./connection.js";
-import { sendfile } from "./compare.js";
+import { compare } from "../controllers/compare.js";
+import { connection } from "../controllers/connection.js";
+import { sendfile } from "../controllers/compare.js";
 const route = express.Router();
 export const datafromDb = [];
 route.get("/get", (req, res) => res.send("get value"));

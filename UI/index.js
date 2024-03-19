@@ -84,6 +84,7 @@ const onInitialComparision = () => {
       if (json.message == true) {
         messenger.innerHTML = "";
         document.getElementById("order").style.display = "flex";
+        colnamesforFile=[]
         colnamesforFile=json.header;
       } else {
         messenger.innerHTML = "";
@@ -106,6 +107,7 @@ const onChangeOrder = () => {
     .then((response) => response.json())
     .then((json) => {
       console.log(json);
+      colnamesforFile=[]
       for (let i = 0; i < json.database.length; i++) {
         colnamesforFile.push(json.file[i])
         let item1 = document.createElement("li");
@@ -161,6 +163,7 @@ const onChangeOrder = () => {
       result.innerHTML = "";
       const Db = json.Filedata;
       const File = json.LostData;
+      console.log(File,"as file data")
       const message = json.message;
       if (message) {
         let outputElement = document.querySelector(".output");
@@ -185,6 +188,7 @@ const onChangeOrder = () => {
           tr1.append(td1);
           tr2.append(td2);
         }
+
         tab1.append(tr1);
         tab2.append(tr2);
         for (let i in Db) {
@@ -201,15 +205,17 @@ const onChangeOrder = () => {
 
         for (let i in File) {
           let list = document.createElement("tr");
-          let dest = Object.values(File[i].data);
+          let dest = Object.values(File[i]
+            // .data
+            );
           for (let j of dest) {
             let li = document.createElement("td");
             li.append(j);
             list.append(li);
           }
-          let missid = document.createElement("td");
-          missid.append(File[i].index)
-          list.append(missid);
+          // let missid = document.createElement("td");
+          // missid.append(File[i].index)
+          // list.append(missid);
           tab2.append(list);
           lostdata.appendChild(tab2);
         }
