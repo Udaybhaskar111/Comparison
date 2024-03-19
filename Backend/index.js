@@ -24,9 +24,15 @@ app.use(bodyParser.json());
 // app.use('/opt',opt)
 app.use("/info", sendheader);
 app.use("/initialCompare", initialcompare);
+<<<<<<< HEAD
+app.use("/sqlite", sqlite);
+// app.use("/oracle", oracle);
+
+=======
 // app.use("/sqlite", sqlite);
 // app.use("/oracle", oracle);
 // app.post('/',optimise);
 // app.use('/',sequelize)
+>>>>>>> e277584ee7f86fb6eaa53bea1c059426ffb48cbe
 app.use("/", route);
 app.listen(8082, () => console.log("connected"));
