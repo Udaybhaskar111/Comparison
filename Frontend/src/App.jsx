@@ -1,10 +1,11 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
+import './App.css';
+import {Form} from './components/Form/Form.jsx'
 import CompareLevel1 from './components/Compare/CompareLevel.jsx';
 function App() {
   return (
     <>
-    <CompareLevel1/>
+      <Form/>
+      <CompareLevel1/>
     </>
   )
 }
