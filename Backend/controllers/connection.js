@@ -2,6 +2,7 @@ import * as fs from "fs";
 import { Sequelize } from "sequelize";
 export const connection =async(req,res)=>{
       const {body}=req;
+      console.log(body)
       const {TabelName,DBtype,passwd,user_id,DBname}=body;
       const sequelize = new Sequelize(DBname, user_id, passwd
     , {
@@ -39,7 +40,7 @@ export const connection =async(req,res)=>{
         
         .then(results => {
           const jsonData = JSON.stringify(results, null, 2);
-            fs.writeFile('constants//data.json', jsonData, (err) => {
+            fs.writeFile('constants/data.json', jsonData, (err) => {
                 if (err) {
                   console.error("Error writing JSON file:", err);
                 } else {
