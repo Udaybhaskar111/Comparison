@@ -62,7 +62,7 @@ export default function FeildMapping(){
                         </div>
                         <div className={styles.feilds}>
                             {
-                                dbFeilds.map((each,index)=>(
+                                dbFeilds.map((each)=>(
                                     <div className={styles.options}>
                                         <p>{each}</p>
                                     </div>                        
