@@ -11,6 +11,10 @@
     gap: 10px;
 
 }
+.dropped{
+    display: flex;
+    gap: 20px;
+}
 .options{
     width: 200px;
     text-align: center;
@@ -23,8 +27,6 @@
         margin: 0px;
     }
 }
-
-
 .level2{
     display: flex;
     color:rgb(82,82,82);
@@ -33,5 +35,4 @@
         font-size: 24px;
 
     }
-
 }
