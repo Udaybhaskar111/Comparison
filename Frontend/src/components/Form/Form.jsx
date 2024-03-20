@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import styles from './Form.module.scss';
 import { Button } from '@mui/material';
 import fileImage from '../../assets/upload.svg'
+import {request} from '../../services/Axios/calls.js';
 export const Form=()=>{
     const form=useForm({mode:"onBlur"});
     const fileform=useForm({mode:'onBlur'})
@@ -11,7 +12,8 @@ export const Form=()=>{
     const { errors: errorsForm1 } = formStateForm1;
     const { register: registerForm2, handleSubmit: handleSubmitForm2, formState: formStateForm2 } = fileform;
     const { errors: errorsForm2 } = formStateForm2;
-    const setDatabaseData=(formdata)=>{
+    const setDatabaseData=async(formdata)=>{
+      try{
       let data = {
         DBname: formdata.DatabaseName,
         user_id: formdata.UserName,
@@ -20,37 +22,47 @@ export const Form=()=>{
         TabelName: formdata.TableName,
         port:formdata.port,
       };
-      fetch("http://localhost:8082/createConnection", {
-      method: "POST",
-      body: JSON.stringify(data),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  })
-    .then((response) => response.json())
-    .then((json) => console.log(json,"kks"));
+  //     fetch("http://localhost:8082/createConnection", {
+  //     method: "POST",
+  //     body: JSON.stringify(data),
+  //   headers: {
+  //     "Content-type": "application/json; charset=UTF-8",
+  //   },
+  // })
+  //   .then((response) => response.json())
+  //   .then((json) => console.log(json,"kks"));
+  
+    // const data=await request("GET",'http://localhost:8082/get');
+    // console.log(data,"success")
+    const data1=await request("POST","http://localhost:8082/createConnection",data)
+    console.log(data1,"post")
+  }
+    catch{
+      console.log("error")
+    }
 }
-const upload = (file) => {
+const upload = async(file) => {
   const formData = new FormData();
   formData.append("file", file);
+  const data1=await request("POST","http://localhost:8082/file",formData)
+  console.log(data1,"post")
 
-  fetch("http://localhost:8082/file", {
-    method: "POST",
-    body: formData,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((success) => console.log(success))
-    .catch((error) => console.log(error));
+  // fetch("http://localhost:8082/file", {
+  //   method: "POST",
+  //   body: formData,
+  // })
+  //   .then((response) => {
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+  //     return response.json();
+  //   })
+  //   .then((success) => console.log(success))
+  //   .catch((error) => console.log(error));
 };
-const setFormData=(data)=>{
+const setFormData=async(data)=>{
   let filename = data.Filename[0].name;
   console.log(filename,"as file name")
-  // upload(file.files[0]);
   upload(data.Filename[0])
 }
     
