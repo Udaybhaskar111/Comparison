@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import TextField from '@mui/material/TextField';
 import styles from './Form.module.scss';
 import fileImage from '../../assets/upload.svg'
+import {request} from '../../services/Axios/calls.js';
 export const Form=()=>{
     const form=useForm({mode:"onBlur"});
     const fileform=useForm({mode:'onBlur'})
@@ -13,7 +14,8 @@ export const Form=()=>{
     const [isSubmit,setSubmit]=useState(false)
     const [file,setFile]=useState();
     const [fileStatus,setfileStatus]=useState(false);
-    const setDatabaseData=(formdata)=>{
+    const setDatabaseData=async(formdata)=>{
+      try{
       let data = {
         DBname: formdata.DatabaseName,
         user_id: formdata.UserName,
@@ -35,28 +37,43 @@ export const Form=()=>{
     .then((json) => console.log(json,"kks"));
     setSubmit(true)
 
+  //     fetch("http://localhost:8082/createConnection", {
+  //     method: "POST",
+  //     body: JSON.stringify(data),
+  //   headers: {
+  //     "Content-type": "application/json; charset=UTF-8",
+  //   },
+  // })
+  //   .then((response) => response.json())
+  //   .then((json) => console.log(json,"kks"));
+  
+    // const data=await request("GET",'http://localhost:8082/get');
+    // console.log(data,"success")
+    const data1=await request("POST","http://localhost:8082/createConnection",data)
+    console.log(data1,"post")
+  }
+    catch{
+      console.log("error")
+    }
 }
-const upload = (file) => {
+const upload = async(file) => {
   const formData = new FormData();
   formData.append("file", file);
-  fetch("http://192.168.220.119:8082/file", {
-    method: "POST",
-    body: formData,
-  }).then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json(); 
-    })
-    .then((success) => setfileStatus((prev)=>!prev))
-    .catch((error) => console.log(error));
+ 
+  const data1=await request("POST","http://localhost:8082/file",formData)
+  console.log(data1,"post")
+  if(data1){
+    setfileStatus((prev)=>!prev)
+  }
+
 };
-const setFormData=(data)=>{
+const setFormData=async(data)=>{
   let filename = data.Filename[0].name;
   console.log(filename,"as file name")
   
   upload(data.Filename[0]);
   resetDbFile();
+  upload(data.Filename[0])
 }
 const showfile=(file,setFile)=>{
   let a=document.getElementById('fileInput');

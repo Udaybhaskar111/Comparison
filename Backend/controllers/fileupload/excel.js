@@ -20,7 +20,7 @@ export const send = async (req, res) => {
               .then((jsonObj) => {
                 console.log(jsonObj, "object");
                 const jsonData = JSON.stringify(jsonObj, null, 2);
-                fs.writeFile("datafile.json", jsonData, (err) => {
+                fs.writeFile("constants/datafile.json", jsonData, (err) => {
                   if (err) {
                     console.error("Error writing JSON file:", err);
                   } else {
@@ -55,7 +55,7 @@ export const send = async (req, res) => {
         // res.json(jsonPagesArray[0]);
 
         const jsonData = JSON.stringify(jsonPagesArray[0].content);
-        fs.writeFile("datafile.json", jsonData, (err) => {
+        fs.writeFile("constants/datafile.json", jsonData, (err) => {
           if (err) {
             console.error("Error writing JSON file:", err);
           } else {

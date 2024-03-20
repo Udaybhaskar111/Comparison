@@ -93,7 +93,11 @@ import { json2csv } from "json-2-csv";
 import * as fs from "fs";
 let mismatch = [];
 export const compare = async (req, res) => {
+  const {body}=req;
+  console.log(body.length,"ak")
+  console.log(body)
   mismatch=[]
+  console.log(mismatch,"initaial")
   const key = primaryKey[0].primarykey;
   let dataDB2 = {};
   for (const record of datadb) {
@@ -107,35 +111,24 @@ export const compare = async (req, res) => {
       const dbRecordValues = Object.values(dbRecord);
       let dataRecord = Object.values(datafile[i]);
       for (let j = 0; j < dataRecord.length; j++) {
-        let type = typeof dbRecordValues[j];
-        try {
-          switch (type) {
-            case "number":
-              dataRecord[j] = Number(dataRecord[j]);
-              break;
-            case "string":
-              dataRecord[j] = String(dataRecord[j]);
-              break;
-            case "boolean":
-              dataRecord[j] = Boolean(dataRecord[j]);
-              break;
-            case "date":
-              dataRecord[j] = new Date(dataRecord[j]);
-              break;
-            default:
-              dataRecord[j] = dataRecord[j];
-          }
-        } catch (error) {
-          console.log("Error converting data:", error);
-        }
-        if ((dbRecordValues[j] === dataRecord[j]) || (dbRecordValues[j] == null && dataRecord[j] == null) || (dbRecordValues[j] == "" && dataRecord[j] == null)) {
+        if(body.length>0){
+        if ((dbRecordValues[j] == dataRecord[body[j]]) || (dbRecordValues[body[j]] == null && dataRecord[body[j]] == null) || (dbRecordValues[body[j]] == "" && dataRecord[body[j]] == null)) {
           continue;
         } else {
           mismatch.push(datafile[i]);
           break;
+        }}
+        else{
+          if ((dbRecordValues[j] == dataRecord[j]) || (dbRecordValues[j] == null && dataRecord[j] == null) || (dbRecordValues[j] == "" && dataRecord[j] == null)) {
+            continue;
+          } else {
+            mismatch.push(datafile[i]);
+            break;
+          }
         }
       }
-    } else {
+    } 
+    else {
       mismatch.push(datafile[i]);
     }
   }
